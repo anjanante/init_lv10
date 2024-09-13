@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\UserController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -17,6 +18,9 @@ use Illuminate\Support\Facades\Route;
 Route::get('/', function () {
     return  view('home', ['framework' => 'Laravel']);
 });
+
+//allow to generate /users, /users/create, /users/{user}, /users/{user}/edit, /users (POST), ...
+Route::resource('users', UserController::class);
 
 Route::get('/string', function () {
     return  "string";
