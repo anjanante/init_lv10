@@ -36,3 +36,19 @@ Route::get('/user/{name?}', function($name = 'Nant-Default'){
 Route::get('/user-valid/{name}', function($name){
     return "Hello $name";
 })->where('name', '[A-Za-z]+');
+
+//with name
+Route::get('/route-name', function(){
+    return "MY name Route";
+})->name('mynameroute');
+
+Route::get('/test', function(){
+    return redirect()->route('mynameroute');
+});
+
+//Check Redirection
+Route::redirect('/here', '/there');
+//for permanent
+Route::redirect('/test', '/test1', 301); 
+//or
+// Route::permanentRedirect('/test', '/test1')
