@@ -15,4 +15,5 @@
         </tr>
         @endforeach
     </table>
+    <x-alert/>
 @endsection
