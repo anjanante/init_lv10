@@ -4,11 +4,19 @@ namespace App\Http\Controllers;
 
 use App\Models\User;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
 
 class UserController extends Controller
 {
     public function index(){
         $data['users'] = User::orderBy('id', 'desc')->paginate(5); 
+
+        $categories = DB::table('categories')->get();
+        dump($categories);
+        $categories = DB::table('categories')->where('label', 'c2')->first();
+        dump($categories);
+        $categories = DB::table('categories')->find(1);
+        dump($categories);
         return view('users.index', $data);
     }
 
