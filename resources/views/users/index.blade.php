@@ -6,6 +6,7 @@
             {{ session('success') }}
         </div>
     @endif
+    <a href={{ route('users.create') }} class="btn btn-primary">ADD USER</a>
     <table  class="table  table-striped">
         <thead>
             <th scope="row">Name</th>
@@ -20,6 +21,6 @@
         </tr>
         @endforeach
     </table>
-    <a href={{ route('users.create') }} class="btn btn-primary">ADD USER</a>
+    {!! $users->links() !!}
     <x-alert/>
 @endsection
