@@ -1,29 +1,23 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-</head>
-<body>
-    <h1>I use {{ $framework }}</h1>
-    @if ($framework === 'Laravel')
-        Cool!
-    @else
-        Bad
-    @endif
+@extends('layouts.app')
 
-    @unless (Auth::check())
-        Not connected
-    @endunless
+@section('body')
+<div class="container">
+    <div class="row justify-content-center">
+        <div class="col-md-8">
+            <div class="card">
+                <div class="card-header">{{ __('Dashboard') }}</div>
 
-    @isset($framework)
-        Var exist
-    @endisset
+                <div class="card-body">
+                    @if (session('status'))
+                        <div class="alert alert-success" role="alert">
+                            {{ session('status') }}
+                        </div>
+                    @endif
 
-    @for ($a=0; $a < 10; $a++)
-        Hello, for loop {{ $a }} <br />
-    @endfor
-</body>
-</html>
+                    {{ __('You are connected') }}
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+@endsection
