@@ -24,6 +24,18 @@ class HomeController extends Controller
      */
     public function index()
     {
+        Storage::disk('local')->put('example.txt', 'Demo');
+        $data = Storage::disk('local')->get('example.txt');
+        $size = Storage::disk('local')->size('example.txt');
+        $lasModified = Storage::disk('local')->lastModified('example.txt');
+        $path = Storage::disk('local')->path('example.txt');
+
+        //copy | move | prepend | append | delete
+        
+        dump($data);
+        dump($size);
+        dump($lasModified);
+        dd($path);
         return view('home');
     }
 }
