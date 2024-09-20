@@ -20,7 +20,7 @@ class UserController extends Controller
 
     
     public function index(){
-        $data['users'] = User::orderBy('id', 'desc')->paginate(1); 
+        $data['users'] = User::orderBy('id', 'desc')->paginate(10); 
 
         // $categories = DB::table('categories')->get();
         // dump($categories);
