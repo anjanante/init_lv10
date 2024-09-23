@@ -15,8 +15,8 @@
         </thead>
         @foreach ($posts as $post)
         <tr>
-            <td scope="row">{{ $post->name }}</td>
-            <td>{{ $post->email }}</td>
+            <td scope="row">{{ $post->title }}</td>
+            <td>{{ $post->content }}</td>
             <td><a href={{ route('posts.show', $post->id) }}>SHOW</a></td>
         </tr>
         @endforeach
