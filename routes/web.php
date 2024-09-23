@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\PostController;
 use App\Http\Controllers\UserController;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
@@ -22,6 +23,9 @@ Route::get('/', function () {
 
 //allow to generate /users, /users/create, /users/{user}, /users/{user}/edit, /users (POST), ...
 Route::resource('users', UserController::class);
+
+//allow to generate /posts, /posts/create, /posts/{user}, /posts/{user}/edit, /posts (POST), ...
+Route::resource('posts', PostController::class);
 
 Route::get('/string', function () {
     return  "string";
